@@ -92,7 +92,7 @@
                     @foreach ($results['products'] as  $key=>$product)
                     	<tr>
                             <td>{{ $product->products_id }}</td>
-                            <td><img src="{{asset('').'/'.$product->products_image}}" alt="" width=" 100px" height="100px"></td>
+                            <td><img src="{{getFtpImage($product->products_image)}}" alt="" width=" 100px" height="100px"></td>
                             <td width="45%">
                             	<strong>{{ $product->products_name }} @if(!empty($product->products_model)) ( {{ $product->products_model }} ) @endif</strong><br>
                                 @if(!empty($product->manufacturers_name))

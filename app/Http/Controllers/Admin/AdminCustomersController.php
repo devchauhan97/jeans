@@ -113,8 +113,8 @@ class AdminCustomersController extends Controller
 			if($request->hasFile('newImage') and in_array($request->newImage->extension(), $extensions)){
 				$image = $request->newImage;
 				$fileName = time().'.'.$image->getClientOriginalName();
-				$image->move('resources/assets/images/user_profile/', $fileName);
-				$customers_picture = 'resources/assets/images/user_profile/'.$fileName; 
+				$image->move(storage_path('app/public').'/user_profile/', $fileName);
+				$customers_picture = 'user_profile/'.$fileName; 
 			}	else{
 				$customers_picture = '';
 			}			
@@ -323,8 +323,8 @@ class AdminCustomersController extends Controller
 		if($request->hasFile('newImage') and in_array($request->newImage->extension(), $extensions)){
 			$image = $request->newImage;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/user_profile/', $fileName);
-			$customers_picture = 'resources/assets/images/user_profile/'.$fileName; 
+			$image->move(storage_path('app/public').'/user_profile/', $fileName);
+			$customers_picture = 'user_profile/'.$fileName; 
 		}	else{
 			$customers_picture = $request->oldImage;
 		}		

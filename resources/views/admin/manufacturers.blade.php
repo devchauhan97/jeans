@@ -58,7 +58,7 @@
                         <tr>
                             <td>{{ $manufacturer->id }}</td>
                             <td>{{ $manufacturer->name }}</td>
-                            <td><img src="{{asset('').'/'.$manufacturer->image}}" alt="" width=" 100px"></td>
+                            <td><img src="{{getFtpImage($manufacturer->image)}}" alt="" width=" 100px"></td>
                             <td>
                             	<!--<strong>{{ trans('labels.ClickDate') }}: </strong> {{ $manufacturer->clik_date }}<br>-->
                                 <strong>{{ trans('labels.URL') }}: </strong>{{ $manufacturer->url }} <br>

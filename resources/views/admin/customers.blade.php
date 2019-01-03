@@ -63,7 +63,7 @@
                                 @if(!empty($listingCustomers->customers_picture))
                                 <img src="../{{ $listingCustomers->customers_picture }}" style="width: 100px; float: left; margin-right: 10px">
                                 @else
-                                <img src="../resources/assets/images/default_images/user.png" style="width: 100px; float: left; margin-right: 10px">
+                                <img src="../default_images/user.png" style="width: 100px; float: left; margin-right: 10px">
                                 @endif
 									
 								</td>								

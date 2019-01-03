@@ -82,8 +82,8 @@ class AdminNewsController extends Controller
 		if($request->hasFile('news_image') and in_array($request->news_image->extension(), $extensions)){
 			$image = $request->news_image;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/news_images/', $fileName);
-			$uploadImage = 'resources/assets/images/news_images/'.$fileName; 
+			$image->move(storage_path('app/public').'/news_images/', $fileName);
+			$uploadImage = 'news_images/'.$fileName; 
 		}else{
 			$uploadImage = '';
 		}	
@@ -245,8 +245,8 @@ class AdminNewsController extends Controller
 		if($request->hasFile('news_image') and in_array($request->news_image->extension(), $extensions)){
 			$image = $request->news_image;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/news_images/', $fileName);
-			$uploadImage = 'resources/assets/images/news_images/'.$fileName; 
+			$image->move(storage_path('app/public').'/news_images/', $fileName);
+			$uploadImage = 'news_images/'.$fileName; 
 		}else{
 			$uploadImage = $request->oldImage;
 		}	

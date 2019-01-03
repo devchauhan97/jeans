@@ -86,8 +86,8 @@ class AdminBannersController extends Controller
 		if($request->hasFile('newImage') and in_array($request->newImage->extension(), $extensions)){
 			$image = $request->newImage;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/banner_images/', $fileName);
-			$uploadImage = 'resources/assets/images/banner_images/'.$fileName; 
+			$image->move(storage_path('app/public').'/banner_images/', $fileName);
+			$uploadImage = 'banner_images/'.$fileName; 
 		}else{
 			$uploadImage = '';
 		}
@@ -154,8 +154,8 @@ class AdminBannersController extends Controller
 		if($request->hasFile('newImage') and in_array($request->newImage->extension(), $extensions)){
 			$image = $request->newImage;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/banner_images/', $fileName);
-			$uploadImage = 'resources/assets/images/banner_images/'.$fileName; 
+			$image->move(storage_path('app/public').'/banner_images/', $fileName);
+			$uploadImage = 'banner_images/'.$fileName; 
 		}else{
 			$uploadImage = $request->oldImage;
 		}

@@ -307,7 +307,7 @@
                                     {{ trans('labels.UploadProductImageText') }}</span>
                                     <br>
                                     {!! Form::hidden('oldImage',  $result['product'][0]->products_image , array('id'=>'oldImage', 'class'=>'field-validate ')) !!}
-                                    <img src="{{asset('').$result['product'][0]->products_image}}" alt="" width=" 100px">
+                                    <img src="{{getFtpImage($result['product'][0]->products_image)}}" alt="" width=" 100px">
                                   </div>
                                 </div>
                                 
@@ -350,7 +350,7 @@
   </section>
   <!-- /.content --> 
 </div>
-<script src="{!! asset('resources/views/admin/plugins/jQuery/jQuery-2.2.0.min.js') !!}"></script>
+<script src="{!! asset('admin/plugins/jQuery/jQuery-2.2.0.min.js') !!}"></script>
 <script type="text/javascript">
 		$(function () {
 			

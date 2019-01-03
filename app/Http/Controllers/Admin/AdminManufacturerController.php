@@ -28,7 +28,7 @@ use Auth;
 use Illuminate\Http\Request;
 //use Illuminate\Routing\Controller;
 
-
+use Illuminate\Support\Facades\Storage;
 class AdminManufacturerController extends Controller
 {
 	public function manufacturers(){
@@ -77,8 +77,8 @@ class AdminManufacturerController extends Controller
 			$c_extension = $request->newImage->extension();
 			echo '<pre>'.print_r($c_extension, true).'</pre>';
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/manufacturers_images/', $fileName);
-			$uploadImage = 'resources/assets/images/manufacturers_images/'.$fileName; 
+			$image->move(storage_path('app/public').'/manufacturers_images/', $fileName);
+			$uploadImage = 'manufacturers_images/'.$fileName; 
 		}	else{
 			$uploadImage = '';
 		}	
@@ -169,8 +169,9 @@ class AdminManufacturerController extends Controller
 		if($request->hasFile('newImage') and in_array($request->newImage->extension(), $extensions)){
 			$image = $request->newImage;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/manufacturers_images/', $fileName);
-			$uploadImage = 'resources/assets/images/manufacturers_images/'.$fileName; 
+			$image->move(storage_path('app/public').'/manufacturers_images', $fileName);
+			$uploadImage = 'manufacturers_images/'.$fileName;
+			storeImage($uploadImage);
 		}else{
 			$uploadImage = $request->oldImage;
 		}

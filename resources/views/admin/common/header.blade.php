@@ -44,9 +44,9 @@
                       <div class="pull-left">
                         
                          @if(!empty($unseenOrder->customers_picture))
-                            <img src="{{asset('').'/'.$unseenOrder->customers_picture}}" class="img-circle" alt="{{ $unseenOrder->customers_name }} Image">
+                            <img src="{{getFtpImage($unseenOrder->customers_picture)}}" class="img-circle" alt="{{ $unseenOrder->customers_name }} Image">
                             @else
-                            <img src="{{asset('').'/resources/assets/images/default_images/user.png' }}" class="img-circle" alt="{{ $unseenOrder->customers_name }} Image">
+                            <img src="{{asset('').'/default_images/user.png' }}" class="img-circle" alt="{{ $unseenOrder->customers_name }} Image">
                          @endif
                                                   
                       </div>
@@ -79,9 +79,9 @@
                     <a href="{{ URL::to("admin/editcustomers")}}/{{ $newCustomer->customers_id}}">
                       <div class="pull-left">
                          @if(!empty($newCustomer->customers_picture))
-                            <img src="{{asset('').'/'.$newCustomer->customers_picture}}" class="img-circle">
+                            <img src="{{getFtpImage($newCustomer->customers_picture)}}" class="img-circle">
                             @else
-                            <img src="{{asset('').'/resources/assets/images/default_images/user.png' }}" class="img-circle" alt="{{ $newCustomer->customers_firstname }} Image">
+                            <img src="{{asset('').'/default_images/user.png' }}" class="img-circle" alt="{{ $newCustomer->customers_firstname }} Image">
                          @endif
                       </div>
                       <h4>
@@ -113,7 +113,7 @@
                   <li><!-- start message -->
                     <a href="{{ URL::to("admin/editProduct")}}/{{ $lowInQunatity->products_id}}">
                       <div class="pull-left">                         
-                         <img src="{{asset('').'/'.$lowInQunatity->products_image}}" class="img-circle" >
+                         <img src="{{getFtpImage($lowInQunatity->products_image)}}" class="img-circle" >
                       </div>
                       <h4 style="white-space: normal;">
                         {{ $lowInQunatity->products_name }} 

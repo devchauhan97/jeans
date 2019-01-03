@@ -92,8 +92,9 @@ class AdminCategoriesController extends Controller
 		if($request->hasFile('newImage') and in_array($request->newImage->extension(), $extensions)){
 			$image = $request->newImage;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/category_images/', $fileName);
-			$uploadImage = 'resources/assets/images/category_images/'.$fileName; 
+			$image->move(storage_path('app/public').'/category_images/', $fileName);
+			$uploadImage = 'category_images/'.$fileName;
+			storeImage($uploadImage); 
 		}	else{
 			$uploadImage = '';
 		}	
@@ -101,8 +102,9 @@ class AdminCategoriesController extends Controller
 		if($request->hasFile('newIcon') and in_array($request->newIcon->extension(), $extensions)){
 			$icon = $request->newIcon;
 			$iconName = time().'.'.$icon->getClientOriginalName();
-			$icon->move('resources/assets/images/category_icons/', $iconName);
-			$uploadIcon = 'resources/assets/images/category_icons/'.$iconName; 
+			$icon->move(storage_path('app/public').'/category_icons/', $iconName);
+			$uploadIcon = 'category_icons/'.$iconName; 
+			storeImage($uploadIcon);
 		}	else{
 			$uploadIcon = '';
 		}	
@@ -232,8 +234,9 @@ class AdminCategoriesController extends Controller
 		if($request->hasFile('newImage') and in_array($request->newImage->extension(), $extensions)){
 			$image = $request->newImage;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/category_images/', $fileName);
-			$uploadImage = 'resources/assets/images/category_images/'.$fileName; 
+			$image->move(storage_path('app/public').'/category_images/', $fileName);
+			$uploadImage = 'category_images/'.$fileName; 
+			storeImage($uploadImage);
 		}else{
 			$uploadImage = $request->oldImage;
 		}
@@ -241,8 +244,9 @@ class AdminCategoriesController extends Controller
 		if($request->hasFile('newIcon') and in_array($request->newIcon->extension(), $extensions)){
 			$icon = $request->newIcon;
 			$iconName = time().'.'.$icon->getClientOriginalName();
-			$icon->move('resources/assets/images/category_icons/', $iconName);
-			$uploadIcon = 'resources/assets/images/category_icons/'.$iconName; 
+			$icon->move(storage_path('app/public').'/category_icons/', $iconName);
+			$uploadIcon = 'category_icons/'.$iconName; 
+			storeImage($uploadIcon);
 		}	else{
 			$uploadIcon = $request->oldIcon;
 		}
@@ -359,8 +363,9 @@ class AdminCategoriesController extends Controller
 		if($request->hasFile('newImage') and in_array($request->newImage->extension(), $extensions)){
 			$image = $request->newImage;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/category_images/', $fileName);
-			$uploadImage = 'resources/assets/images/category_images/'.$fileName; 
+			$image->move(storage_path('app/public').'/category_images/', $fileName);
+			$uploadImage = 'category_images/'.$fileName; 
+			storeImage($uploadImage);
 		}else{
 			$uploadImage = '';
 		}
@@ -368,8 +373,9 @@ class AdminCategoriesController extends Controller
 		if($request->hasFile('newIcon') and in_array($request->newIcon->extension(), $extensions)){
 			$icon = $request->newIcon;
 			$iconName = time().'.'.$icon->getClientOriginalName();
-			$icon->move('resources/assets/images/category_icons/', $iconName);
-			$uploadIcon = 'resources/assets/images/category_icons/'.$iconName; 
+			$icon->move(storage_path('app/public').'/category_icons/', $iconName);
+			$uploadIcon = 'category_icons/'.$iconName;
+			storeImage($uploadIcon); 
 		}	else{
 			$uploadIcon = '';
 		}		
@@ -519,8 +525,9 @@ class AdminCategoriesController extends Controller
 		if($request->hasFile('newImage') and in_array($request->newImage->extension(), $extensions)){
 			$image = $request->newImage;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/category_images/', $fileName);
-			$uploadImage = 'resources/assets/images/category_images/'.$fileName; 
+			$image->move(storage_path('app/public').'/category_images/', $fileName);
+			$uploadImage = 'category_images/'.$fileName; 
+			storeImage($uploadImage);
 		}else{
 			$uploadImage = $request->oldImage;
 		}
@@ -528,8 +535,9 @@ class AdminCategoriesController extends Controller
 		if($request->hasFile('newIcon') and in_array($request->newIcon->extension(), $extensions)){
 			$icon = $request->newIcon;
 			$iconName = time().'.'.$icon->getClientOriginalName();
-			$icon->move('resources/assets/images/category_icons/', $iconName);
-			$uploadIcon = 'resources/assets/images/category_icons/'.$iconName; 
+			$icon->move(storage_path('app/public').'/category_icons/', $iconName);
+			$uploadIcon = 'category_icons/'.$iconName; 
+			storeImage($uploadIcon);
 		}	else{
 			$uploadIcon = $request->oldIcon;
 		}

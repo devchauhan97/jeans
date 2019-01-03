@@ -59,7 +59,7 @@
                         <tr>
                             <td>{{ $banners->banners_id }}</td>
                             <td>{{ $banners->banners_title }}</td>
-                            <td><img src="{{asset('').'/'.$banners->banners_image}}" alt="" width=" 100px"></td>
+                            <td><img src="{{getFtpImage($banners->banners_image}}" alt="" width=" 100px"></td>
                             <td><strong>{{ trans('labels.AddedDate') }}: </strong> {{ date('d M, Y', strtotime($banners->date_added)) }}<br>
                             <strong>{{ trans('labels.ModifiedDate') }}: </strong>@if(!empty($banners->date_status_change)) {{ date('d M, Y', strtotime($banners->date_status_change)) }}  @endif<br>
                             <strong>{{ trans('labels.ExpiryDate') }}: </strong>@if(!empty($banners->expires_date)) {{ date('d M, Y', strtotime($banners->expires_date)) }}  @endif</td>

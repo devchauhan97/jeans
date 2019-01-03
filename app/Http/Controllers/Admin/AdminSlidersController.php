@@ -86,15 +86,15 @@ class AdminSlidersController extends Controller
 		$expiryDateFormate = date('Y-m-d H:i:s', strtotime($expiryDate));
 		$type = $request->type;
 		
-		if (!file_exists('resources/assets/images/slider_images/')) {
-			mkdir('resources/assets/images/slider_images/', 0777, true);
+		if (!file_exists('slider_images/')) {
+			mkdir('slider_images/', 0777, true);
 		}
 		
 		if($request->hasFile('newImage') and in_array($request->newImage->extension(), $extensions)){
 			$image = $request->newImage;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/slider_images/', $fileName);
-			$uploadImage = 'resources/assets/images/slider_images/'.$fileName; 
+			$image->move(storage_path('app/public').'/slider_images/', $fileName);
+			$uploadImage = 'slider_images/'.$fileName; 
 		}else{
 			$uploadImage = '';
 		}
@@ -163,8 +163,8 @@ class AdminSlidersController extends Controller
 		if($request->hasFile('newImage') and in_array($request->newImage->extension(), $extensions)){
 			$image = $request->newImage;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/banner_images/', $fileName);
-			$uploadImage = 'resources/assets/images/banner_images/'.$fileName; 
+			$image->move(storage_path('app/public').'/banner_images/', $fileName);
+			$uploadImage = 'banner_images/'.$fileName; 
 		}else{
 			$uploadImage = $request->oldImage;
 		}

@@ -60,8 +60,8 @@
                         <tr>
                         	<td>{{ $categories->subId }}</td>
                             <td>{{ $categories->subCategoryName }}</td>
-                            <td><img src="{{asset('').'/'.$categories->image}}" alt="" width=" 100px"></td>
-                            <td><img src="{{asset('').'/'.$categories->icon}}" alt="" width=" 100px"></td>
+                            <td><img src="{{getFtpImage($categories->image)}}" alt="" width=" 100px"></td>
+                            <td><img src="{{getFtpImage($categories->icon)}}" alt="" width=" 100px"></td>
                             <td>{{ $categories->mainCategoryName }}</td>
                             <td>
                             	<strong>{{ trans('labels.AddedDate') }}: </strong> {{ $categories->date_added }}<br>

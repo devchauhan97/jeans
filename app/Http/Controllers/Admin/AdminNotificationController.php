@@ -112,8 +112,8 @@ class AdminNotificationController extends Controller
 		if($request->hasFile('image') and in_array($request->image->extension(), $extensions)){
 			$image = $request->image;
 			$fileName = time().'.'.$image->getClientOriginalName();			
-			$image->move('resources/assets/images/notification_images/', $fileName);
-			$uploadImage = 'resources/assets/images/notification_images/'.$fileName; 			
+			$image->move(storage_path('app/public').'/notification_images/', $fileName);
+			$uploadImage = 'notification_images/'.$fileName; 			
 			$websiteURL =  "http://" . $_SERVER['SERVER_NAME'] .'/demos/website/'. $uploadImage;			
 		}else{
 			$websiteURL = '';
@@ -172,8 +172,8 @@ class AdminNotificationController extends Controller
 		if($request->hasFile('image') and in_array($request->image->extension(), $extensions)){
 			$image = $request->image;
 			$fileName = time().'.'.$image->getClientOriginalName();			
-			$image->move('resources/assets/images/notification_images/', $fileName);
-			$uploadImage = 'resources/assets/images/notification_images/'.$fileName; 			
+			$image->move(storage_path('app/public').'/notification_images/', $fileName);
+			$uploadImage = 'notification_images/'.$fileName; 			
 			$websiteURL =  "http://" . $_SERVER['SERVER_NAME'] .'/demos/website/'. $uploadImage;			
 		}else{
 			$websiteURL = '';

@@ -1,49 +1,49 @@
-<script src="{!! asset('resources/views/admin/plugins/jQuery/jQuery-2.2.0.min.js') !!}"></script>
-<script src="{!! asset('resources/views/admin/bootstrap/js/bootstrap.min.js') !!}"></script>
-<script src="{!! asset('resources/views/admin/plugins/select2/select2.full.min.js') !!}"></script>
+<script src="{!! asset('admin/plugins/jQuery/jQuery-2.2.0.min.js') !!}"></script>
+<script src="{!! asset('admin/bootstrap/js/bootstrap.min.js') !!}"></script>
+<script src="{!! asset('admin/plugins/select2/select2.full.min.js') !!}"></script>
 
 <!-- InputMask -->
-<script src="{!! asset('resources/views/admin/plugins/input-mask/jquery.inputmask.js') !!}"></script>
-<script src="{!! asset('resources/views/admin/plugins/input-mask/jquery.inputmask.date.extensions.js') !!}"></script>
-<script src="{!! asset('resources/views/admin/plugins/input-mask/jquery.inputmask.extensions.js') !!}"></script>
+<script src="{!! asset('admin/plugins/input-mask/jquery.inputmask.js') !!}"></script>
+<script src="{!! asset('admin/plugins/input-mask/jquery.inputmask.date.extensions.js') !!}"></script>
+<script src="{!! asset('admin/plugins/input-mask/jquery.inputmask.extensions.js') !!}"></script>
 
 <!-- date-range-picker -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<script src="{!! asset('resources/views/admin/plugins/daterangepicker/daterangepicker.js') !!}"></script>
+<script src="{!! asset('admin/plugins/daterangepicker/daterangepicker.js') !!}"></script>
 
 
 <!-- bootstrap datepicker -->
-<script src="{!! asset('resources/views/admin/plugins/datepicker/bootstrap-datepicker.js') !!}"></script>
+<script src="{!! asset('admin/plugins/datepicker/bootstrap-datepicker.js') !!}"></script>
 
 <!-- bootstrap color picker -->
-<script src="{!! asset('resources/views/admin/plugins/colorpicker/bootstrap-colorpicker.min.js') !!}"></script>
+<script src="{!! asset('admin/plugins/colorpicker/bootstrap-colorpicker.min.js') !!}"></script>
 <!-- bootstrap time picker -->
-<script src="{!! asset('resources/views/admin/plugins/timepicker/bootstrap-timepicker.min.js') !!}"></script>
+<script src="{!! asset('admin/plugins/timepicker/bootstrap-timepicker.min.js') !!}"></script>
 <!-- SlimScroll 1.3.0 -->
-<script src="{!! asset('resources/views/admin/plugins/slimScroll/jquery.slimscroll.min.js') !!}"></script>
+<script src="{!! asset('admin/plugins/slimScroll/jquery.slimscroll.min.js') !!}"></script>
 <!-- iCheck 1.0.1 -->
-<script src="{!! asset('resources/views/admin/plugins/iCheck/icheck.min.js') !!}"></script>
+<script src="{!! asset('admin/plugins/iCheck/icheck.min.js') !!}"></script>
 <!-- FastClick -->
-<script src="{!! asset('resources/views/admin/plugins/fastclick/fastclick.js') !!}"></script>
+<script src="{!! asset('admin/plugins/fastclick/fastclick.js') !!}"></script>
 <!-- AdminLTE App -->
-<script src="{!! asset('resources/views/admin/dist/js/app.min.js') !!}"></script>
+<script src="{!! asset('admin/dist/js/app.min.js') !!}"></script>
 @if(Request::path() == 'admin/dashboard/last_year' or Request::path() == 'admin/dashboard/last_month' or Request::path() == 'admin/dashboard/this_month')
-    <!--<script src="{!! asset('resources/views/admin/dist/js/pages/dashboard.js') !!}"></script>-->
+    <!--<script src="{!! asset('admin/dist/js/pages/dashboard.js') !!}"></script>-->
 @endif
 <!-- AdminLTE for demo purposes -->
-<script src="{!! asset('resources/views/admin/js/demo.js') !!}"></script>
+<script src="{!! asset('admin/js/demo.js') !!}"></script>
 
-<script src="{!! asset('resources/views/admin/plugins/chartjs/Chart.min.js') !!}"></script>
-<script src="{!! asset('resources/views/admin/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') !!}"></script>
-<script src="{!! asset('resources/views/admin/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') !!}"></script>
-<script src="{!! asset('resources/views/admin/plugins/sparkline/jquery.sparkline.min.js') !!}"></script>
+<script src="{!! asset('admin/plugins/chartjs/Chart.min.js') !!}"></script>
+<script src="{!! asset('admin/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') !!}"></script>
+<script src="{!! asset('admin/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') !!}"></script>
+<script src="{!! asset('admin/plugins/sparkline/jquery.sparkline.min.js') !!}"></script>
 
-<script src="{!! asset('resources/views/admin/plugins/sparkline/jquery.sparkline.min.js') !!}"></script>
+<script src="{!! asset('admin/plugins/sparkline/jquery.sparkline.min.js') !!}"></script>
 
 <!-- CK Editor -->
 <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
 <!-- Bootstrap WYSIHTML5 -->
-<script src="{!! asset('resources/views/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') !!}"></script>
+<script src="{!! asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') !!}"></script>
 
 <!-- Page script -->
 
@@ -834,7 +834,7 @@ $(document).on('click', '#updateAddress', function(e){
 					var showData = [];
 					for (i = 0; i < res.length; ++i) {
 						var j = i + 1;
-						showData[i] = "<tr><td>"+j+"</td><td><img src={{asset('').'/'}}"+res[i].image+" alt='' width=' 100px'></td><td>"+res[i].htmlcontent+"</td> <td><a products_id = '"+res[i].products_id+"' class='badge bg-light-blue editProductImagesModal' id = '"+res[i].id+"' ><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a> <a class='badge bg-red deleteProductImagesModal' id = '"+res[i].id+"' products_id = '"+res[i].products_id+"' ><i class='fa fa-trash' aria-hidden='true'></i></a></td></tr>"; 
+						showData[i] = "<tr><td>"+j+"</td><td><img src="+res[i].image+" alt='' width=' 100px'></td><td>"+res[i].htmlcontent+"</td> <td><a products_id = '"+res[i].products_id+"' class='badge bg-light-blue editProductImagesModal' id = '"+res[i].id+"' ><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a> <a class='badge bg-red deleteProductImagesModal' id = '"+res[i].id+"' products_id = '"+res[i].products_id+"' ><i class='fa fa-trash' aria-hidden='true'></i></a></td></tr>"; 
 					}
 					$(".contentImages").html(showData);
 				}else{

@@ -82,8 +82,8 @@ class AdminNewsCategoriesController extends Controller
 		if($request->hasFile('newImage') and in_array($request->newImage->extension(), $extensions)){
 			$image = $request->newImage;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/news_categories_images/', $fileName);
-			$uploadImage = 'resources/assets/images/news_categories_images/'.$fileName; 
+			$image->move(storage_path('app/public').'/news_categories_images/', $fileName);
+			$uploadImage = 'news_categories_images/'.$fileName; 
 		}	else{
 			$uploadImage = '';
 		}	
@@ -91,8 +91,8 @@ class AdminNewsCategoriesController extends Controller
 		if($request->hasFile('newIcon') and in_array($request->newIcon->extension(), $extensions)){
 			$icon = $request->newIcon;
 			$iconName = time().'.'.$icon->getClientOriginalName();
-			$icon->move('resources/assets/images/news_icons/', $iconName);
-			$uploadIcon = 'resources/assets/images/news_icons/'.$iconName; 
+			$icon->move(storage_path('app/public').'/news_icons/', $iconName);
+			$uploadIcon = 'news_icons/'.$iconName; 
 		}	else{
 			$uploadIcon = '';
 		}	
@@ -223,8 +223,8 @@ class AdminNewsCategoriesController extends Controller
 		if($request->hasFile('newImage') and in_array($request->newImage->extension(), $extensions)){
 			$image = $request->newImage;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/news_categories_images/', $fileName);
-			$uploadImage = 'resources/assets/images/news_categories_images/'.$fileName; 
+			$image->move(storage_path('app/public').'/news_categories_images/', $fileName);
+			$uploadImage = 'news_categories_images/'.$fileName; 
 		}else{
 			$uploadImage = $request->oldImage;
 		}
@@ -232,8 +232,8 @@ class AdminNewsCategoriesController extends Controller
 		if($request->hasFile('newIcon') and in_array($request->newIcon->extension(), $extensions)){
 			$icon = $request->newIcon;
 			$iconName = time().'.'.$icon->getClientOriginalName();
-			$icon->move('resources/assets/images/news_icons/', $iconName);
-			$uploadIcon = 'resources/assets/images/news_icons/'.$iconName; 
+			$icon->move(storage_path('app/public').'/news_icons/', $iconName);
+			$uploadIcon = 'news_icons/'.$iconName; 
 		}	else{
 			$uploadIcon = $request->oldIcon;
 		}		

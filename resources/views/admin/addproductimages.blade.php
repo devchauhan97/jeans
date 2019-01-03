@@ -50,7 +50,7 @@
 							@foreach($result['products_images'] as $products_image)
 							<tr>
 								<td>{{ $products_image->id }}</td>
-								<td><img src="{{asset('').'/'.$products_image->image}}" alt="" width=" 100px"></td>
+								<td><img src="{{getFtpImage($products_image->image)}}" alt="" width=" 100px"></td>
 								<!--<td>{{ $products_image->sort_order }}</td>-->
 								<td>{{ $products_image->htmlcontent }}</td>
 								<td>

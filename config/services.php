@@ -33,19 +33,6 @@ return [
         'model' => App\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
-    ],  
-        
-    'facebook' => [
-        'client_id' => env('FB_CLIENT_ID'),
-        'client_secret' => env('FB_SECRET_KEY'),
-        'redirect' => env('CALLBACK_URL'),
-    ],
-    
-    
-    'google' => [
-        'client_id' => env('GOOGLE_CLIENT_ID'),
-        'client_secret' => env('GOOGLE_SECRET_KEY'),
-        'redirect' =>env('CALLBACK_URL_G'),
     ],
 
 ];

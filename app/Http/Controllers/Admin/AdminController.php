@@ -222,7 +222,7 @@ class AdminController extends Controller
 		if($request->hasFile('newImage') and in_array($request->newImage->extension(), $extensions)){
 			$image = $request->newImage;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/views/admin/images/admin_profile/', $fileName);
+			$image->move(storage_path('app/public').'/resources/views/admin/images/admin_profile/', $fileName);
 			$uploadImage = 'resources/views/admin/images/admin_profile/'.$fileName; 
 		}	else{
 			$uploadImage = $request->oldImage;

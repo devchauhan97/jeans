@@ -79,7 +79,7 @@
                                     {!! Form::file('newImage', array('id'=>'newImage')) !!}
                                      <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">{{ trans('labels.ManufacturerLogo') }}</span><br>
                 
-                                    <img src="{{asset('').$editManufacturer[0]->image}}" alt="" width=" 100px">
+                                    <img src="{{getFtpImage($editManufacturer[0]->image)}}" alt="" width=" 100px">
                                   </div>
                                 </div>
                               <!-- /.box-body -->

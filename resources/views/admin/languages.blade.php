@@ -71,7 +71,7 @@
                             </td>
                             <!--<td>{{ $languages->languages_id }}</td>-->
                             <td>{{ $languages->name }}</td>
-                            <td><img src="{{asset('').'/'.$languages->image}}" width="25px" alt=""></td>
+                            <td><img src="{{getFtpImage($languages->image}}" width="25px" alt=""></td>
                             <td>{{ $languages->code }}</td>
                             <td>
                             	<a data-toggle="tooltip" data-placement="bottom" title=" {{ $languages->name }}" href="{{ URL::to('admin/editlanguages/'.$languages->languages_id)}}" class="badge bg-light-blue"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> 

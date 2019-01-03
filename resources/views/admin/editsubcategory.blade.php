@@ -98,7 +98,7 @@
                                      <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">{{ trans('labels.UploadSubCategoryImage') }}</span>
                                     <br>
                 
-                                    <img src="{{asset('').$result['editSubCategory'][0]->image}}" alt="" width=" 100px">
+                                    <img src="{{getFtpImage($result['editSubCategory'][0]->image)}}" alt="" width=" 100px">
                                   </div>
                                 </div>
                                 
@@ -109,7 +109,7 @@
                                   <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">{{ trans('labels.UploadSubCategoryIcon') }}</span>
                                   <br>
                 
-                                    <img src="{{asset('').$result['editSubCategory'][0]->icon}}" alt="" width=" 100px">
+                                    <img src="{{getFtpImage($result['editSubCategory'][0]->icon)}}" alt="" width=" 100px">
                                   </div>
                                 </div>
                                 

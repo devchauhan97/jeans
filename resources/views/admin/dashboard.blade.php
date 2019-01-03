@@ -253,9 +253,9 @@
                        	@if($i<=21)
                         <li>
                             @if(!empty($recentCustomers->customers_picture))
-                               <img src="{{asset('').'/'.$recentCustomers->customers_picture}}">
+                               <img src="{{getFtpImage($recentCustomers->customers_picture}}">
                             @else
-                               <img src="{{asset('').'/resources/assets/images/default_images/user.png' }}">
+                               <img src="{{asset('').'/default_images/user.png' }}">
                             @endif
                           <a class="users-list-name" href="{{ URL::to('admin/editCustomers') }}/{{ $recentCustomers->customers_id }}">{{ $recentCustomers->customers_firstname }} {{ $recentCustomers->customers_lastname }}</a>
                           <span class="users-list-date">{{ date('d-M', strtotime($recentCustomers->customers_info_date_account_created)) }}</span>
@@ -432,7 +432,7 @@
               @foreach($result['recentProducts'] as $recentProducts)
                 <li class="item">
                   <div class="product-img">
-                  	<img src="{{asset('').'/'.$recentProducts->products_image}}" alt="" width=" 100px" height="100px">
+                  	<img src="{{getFtpImage($recentProducts->products_image}}" alt="" width=" 100px" height="100px">
                   </div>
                   <div class="product-info">
                     <a href="{{ URL::to('admin/editProduct') }}/{{ $recentProducts->products_id }}" class="product-title">{{ $recentProducts->products_name }}
@@ -459,7 +459,7 @@
     </section>
     <!-- /.content -->
   </div>
-<script src="{!! asset('resources/views/admin/plugins/jQuery/jQuery-2.2.0.min.js') !!}"></script>
+<script src="{!! asset('admin/plugins/jQuery/jQuery-2.2.0.min.js') !!}"></script>
 
-<script src="{!! asset('resources/views/admin/dist/js/pages/dashboard2.js') !!}"></script>
+<script src="{!! asset('admin/dist/js/pages/dashboard2.js') !!}"></script>
   @endsection

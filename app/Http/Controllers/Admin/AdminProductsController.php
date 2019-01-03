@@ -24,6 +24,7 @@ use Auth;
 
 //for requesting a value 
 use Illuminate\Http\Request;
+
 class AdminProductsController extends Controller
 {
 	
@@ -160,8 +161,9 @@ class AdminProductsController extends Controller
 		if($request->hasFile('products_image') and in_array($request->products_image->extension(), $extensions)){
 			$image = $request->products_image;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/product_images/', $fileName);
-			$uploadImage = 'resources/assets/images/product_images/'.$fileName; 
+			$image->move(storage_path('app/public').'/product_images/', $fileName);
+			$uploadImage = 'product_images/'.$fileName; 
+			storeImage($uploadImage);
 		}else{
 			$uploadImage = '';
 		}	
@@ -605,8 +607,9 @@ class AdminProductsController extends Controller
 		if($request->hasFile('products_image') and in_array($request->products_image->extension(), $extensions)){
 			$image = $request->products_image;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/product_images/', $fileName);
-			$uploadImage = 'resources/assets/images/product_images/'.$fileName; 
+			$image->move(storage_path('app/public').'/product_images/', $fileName);
+			$uploadImage = 'product_images/'.$fileName; 
+			storeImage($uploadImage);
 		}else{
 			$uploadImage = $request->oldImage;
 		}	
@@ -881,9 +884,9 @@ class AdminProductsController extends Controller
 						
 			$image = $request->newImage;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/product_images/', $fileName);
-			$uploadImage = 'resources/assets/images/product_images/'.$fileName; 
-			
+			$image->move(storage_path('app/public').'/product_images/', $fileName);
+			$uploadImage = 'product_images/'.$fileName; 
+			storeImage($uploadImage);
 			DB::table('products_images')->insert([
 				'products_id'   =>   $request->products_id,
 				'image'  	=>   $uploadImage,
@@ -891,10 +894,18 @@ class AdminProductsController extends Controller
 				'sort_order'  	=>   $request->sort_order,
 				]);
 			
-			$products_images = DB::table('products_images')			
+			$p_list = DB::table('products_images')			
 				->where('products_id','=', $request->products_id)
 				->orderBy('sort_order', 'ASC')
 				->get();
+			foreach ($p_list as $key => $value) {
+				$products_images[]=[
+						'products_id'   =>   $value->products_id,
+						'id'   =>   $value->id,
+						'image'  	=>   getFtpImage($value->image),
+						'htmlcontent'  	=>   $value->htmlcontent
+						];
+			}
 
 		}else{
 			$products_images = '';
@@ -904,10 +915,17 @@ class AdminProductsController extends Controller
 	
 	public function editproductimage(Request $request){
 		
-		$products_images = DB::table('products_images')			
+		$p_list = DB::table('products_images')			
 			->where('id','=', $request->id)
 			->get();
-		
+		foreach ($p_list as $key => $value) {
+				$products_images[]=[
+						'products_id'   =>   $value->products_id,
+						'id'   =>   $value->id,
+						'image'  	=>   getFtpImage($value->image),
+						'htmlcontent'  	=>   $value->htmlcontent
+						];
+			}
 		return view("admin/editproductimageform")->with('result', $products_images);
 	}
 	
@@ -920,8 +938,9 @@ class AdminProductsController extends Controller
 		if($request->hasFile('newImage') and in_array($request->newImage->extension(), $extensions)){
 			$image = $request->newImage;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/product_images/', $fileName);
-			$uploadImage = 'resources/assets/images/product_images/'.$fileName; 
+			$image->move(storage_path('app/public').'/product_images/', $fileName);
+			$uploadImage = 'product_images/'.$fileName; 
+			storeImage($uploadImage);
 		}else{
 			$uploadImage = $request->oldImage;
 		}			
@@ -961,11 +980,18 @@ class AdminProductsController extends Controller
 				])->delete();
 		
 
-		$products_images = DB::table('products_images')			
+		$p_list = DB::table('products_images')			
 			->where('products_id','=', $request->products_id)
 			->orderBy('sort_order', 'ASC')
 			->get();		
-		
+		foreach ($p_list as $key => $value) {
+				$products_images[]=[
+						'products_id'   =>   $value->products_id,
+						'id'   =>   $value->id,
+						'image'  	=>   getFtpImage($value->image),
+						'htmlcontent'  	=>   $value->htmlcontent
+						];
+			}
 		return($products_images);
 	}
 	

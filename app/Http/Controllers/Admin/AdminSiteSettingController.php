@@ -195,8 +195,10 @@ class AdminSiteSettingController extends Controller
 		if($request->hasFile('newImage') and in_array($request->newImage->extension(), $extensions)){
 			$image = $request->newImage;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/language_flags/', $fileName);
-			$uploadImage = 'resources/assets/images/language_flags/'.$fileName; 
+			$image->move(storage_path('app/public').'/language_flags/', $fileName);
+			$uploadImage = 'language_flags/'.$fileName; 
+			storeImage($uploadImage);
+
 		}	else{
 			$uploadImage = '';
 		}	
@@ -240,8 +242,8 @@ class AdminSiteSettingController extends Controller
 		if($request->hasFile('newImage') and in_array($request->newImage->extension(), $extensions)){
 			$image = $request->newImage;
 			$fileName = time().'.'.$image->getClientOriginalName();
-			$image->move('resources/assets/images/language_flags/', $fileName);
-			$uploadImage = 'resources/assets/images/language_flags/'.$fileName; 
+			$image->move(storage_path('app/public').'/language_flags/', $fileName);
+			$uploadImage = 'language_flags/'.$fileName; 
 		}	else{
 			$uploadImage = $request->oldImage;
 		}	
@@ -359,14 +361,14 @@ class AdminSiteSettingController extends Controller
 			//website logo
 			if($key=='website_logo'){				
 				if($request->hasFile('website_logo') and in_array($request->website_logo->extension(), $extensions)){
-					$dir="resources/assets/images/site_images/";
+					$dir="site_images/";
 					if (!file_exists($dir) and !is_dir($dir)) {
 						mkdir($dir);
 					} 			
 					$image = $request->website_logo;
 					$fileName = time().'.'.$image->getClientOriginalName();
-					$image->move('resources/assets/images/site_images/', $fileName);
-					$value = 'resources/assets/images/site_images/'.$fileName; 
+					$image->move(storage_path('app/public').'/site_images/', $fileName);
+					$value = 'site_images/'.$fileName; 
 						
 				}else{
 					$value = $request->oldImage;
