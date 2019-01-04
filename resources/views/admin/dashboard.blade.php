@@ -253,7 +253,7 @@
                        	@if($i<=21)
                         <li>
                             @if(!empty($recentCustomers->customers_picture))
-                               <img src="{{getFtpImage($recentCustomers->customers_picture)}}">
+                               <img src="{{getFtpImage($recentCustomers->customers_picture}}">
                             @else
                                <img src="{{asset('').'/default_images/user.png' }}">
                             @endif
@@ -432,7 +432,7 @@
               @foreach($result['recentProducts'] as $recentProducts)
                 <li class="item">
                   <div class="product-img">
-                  	<img src="{{getFtpImage($recentProducts->products_image)}}" alt="" width=" 100px" height="100px">
+                  	<img src="{{getFtpImage($recentProducts->products_image}}" alt="" width=" 100px" height="100px">
                   </div>
                   <div class="product-info">
                     <a href="{{ URL::to('admin/editProduct') }}/{{ $recentProducts->products_id }}" class="product-title">{{ $recentProducts->products_name }}
